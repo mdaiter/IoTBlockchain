@@ -20,15 +20,15 @@ void listen(){
 	json_t* root = json_loads(data, 0, NULL);
 	json_t* is_first = json_object_get(root, "first_time");
 	if (is_first == json_true()){
-		shout_out_new(data);
+		shout_out_new_send(data);
 	}
 	else{
-		shout_out_verify(data);
+		shout_out_verify_send(data);
 	}
 }
 
 //Shout out to all other peers that we've received something new. Others start to hashcash. SEND THIS IN JSON
-void shout_out_new(char* data){
+void shout_out_new_send(char* data){
 
 	char buff[13];
 	FILE* f = fopen("host.txt", "r");
@@ -44,6 +44,6 @@ void shout_out_new(char* data){
 }
 
 //Shout out to verify the transaction would be complete
-void shout_out_verify(char* data){
-
+void shout_out_verify_send(char* data){
+	
 }
