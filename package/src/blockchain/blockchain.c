@@ -43,12 +43,12 @@ void shout(char* solution, char* data_id, char* sender_id){
 	//32 for solved str length, 1 for space, length for data_id, 1 for space, length for sender_id, 1 for null_terminating character
 	char* message_to_send = (char*)malloc(sizeof(char) * (32 + 3 + strlen(sender_id) + strlen(data_id)));
 	
-	message_to_send = strcat(message_to_send, solution);
-	message_to_send = strcat(message_to_send, " ");
-	message_to_send = strcat(message_to_send, data_id);
-	message_to_send = strcat(message_to_send, " ");
-	message_to_send = strcat(message_to_send, sender_id);
-	message_to_send = strcat(message_to_send, '\0');
+	strcat(message_to_send, solution);
+	strcat(message_to_send, " ");
+	strcat(message_to_send, data_id);
+	strcat(message_to_send, " ");
+	strcat(message_to_send, sender_id);
+	strcat(message_to_send, '\0');
 	
 	while(!feof(peeps_fp)){
 		if (fscanf(peeps_fp, "%s", ip_peep) != 1){
