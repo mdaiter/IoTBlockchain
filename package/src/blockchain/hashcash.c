@@ -17,13 +17,18 @@ char* rand_str(size_t length) {
     return dest;
 }
 
-void diff_problem_sample(int difficulty){
+//Should return a str that can be hashed to find a certain amount of 0's trailing in a hash function
+char* diff_problem_sample(int difficulty){
 	while(1){
 		int didnt_find = 0;
 		//Get a random string to hash
 		char* str = rand_str(32);
 		unsigned char* hash = SHA256(str, 32, 0);
 		int i;
+		
+		if (difficulty > strlen(str)){
+			return NULL;
+		}
 		for (i = 0 ; i < difficulty; i++){
 			//Search for a hash that begins with a certain amount of 0's
 			if (hash[i] = '0'){
@@ -34,11 +39,11 @@ void diff_problem_sample(int difficulty){
 			continue;
 		}
 		else{
-			break;
+			return str;
 		}
 	}
 }
 
-void solvehashcash(difficult_problem diff_problem, int difficulty){
-	diff_problem(difficulty);
+char* solvehashcash(difficult_problem diff_problem, int difficulty){
+	return diff_problem(difficulty);
 }
