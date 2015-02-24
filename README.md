@@ -17,3 +17,5 @@ make
 ```
 
 This should handle all compilation. This is a shared library, so you need to link against libsecuretransmit.so when compiling it for support
+
+You WILL need to compile [libsocket](https://github.com/dermesser/libsocket) by itself.
