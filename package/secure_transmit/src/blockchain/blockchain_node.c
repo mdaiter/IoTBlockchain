@@ -12,24 +12,24 @@ void blockchain_node_init(blockchain_node_t* blockchain_node, blockchain_device_
 		blockchain_node->out = out;
 	}
 	char* digest;
-	char* transaction_to_hash = MD5One(
+	MD5One(
 						blockchain_node_pretty_print(blockchain_node),
 						strlen(blockchain_node_pretty_print(blockchain_node)),
 						digest
 						);
-	blockchain_node->hash = transaction_to_hash;
+	blockchain_node->hash = digest;
 	
 }
 
 void blockchain_node_new_conn(blockchain_node_t* blockchain_node, blockchain_device_t* out){
 	blockchain_node->out = out;
 	char* digest;
-	char* transaction_to_hash = MD5One(
+	MD5One(
 						blockchain_node_pretty_print(blockchain_node),
 						strlen(blockchain_node_pretty_print(blockchain_node)),
 						digest
 						);
-	blockchain_node->hash = transaction_to_hash;
+	blockchain_node->hash = digest;
 	store_blockchain_node(blockchain_node);
 }
 
@@ -47,14 +47,14 @@ char* blockchain_node_pretty_print(blockchain_node_t* blockchain_node){
 	
 	json_object_set_new(in, "id", json_string(blockchain_node->in->id));
 	json_object_set_new(in, "value", json_string(blockchain_node->in->value));
-	json_object_set_new(in, "date", json_string(blockchain_node->in->date));
+	json_object_set_new(in, "date", json_integer(blockchain_node->in->date));
 	
 	
 	//You *could* have this be the last node in the block
 	if (blockchain_node->out != NULL){
 		json_object_set_new(out, "id", json_string(blockchain_node->out->id));
 		json_object_set_new(out, "value", json_string(blockchain_node->out->value));
-		json_object_set_new(out, "date", json_string(blockchain_node->out->date));	
+		json_object_set_new(out, "date", json_integer(blockchain_node->out->date));	
 	}
 	json_object_set_new(root, "in", in);
 	json_object_set_new(root, "out", out);

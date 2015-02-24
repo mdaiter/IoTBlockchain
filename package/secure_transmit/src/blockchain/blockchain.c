@@ -64,7 +64,7 @@ void shout(char* solution, char* data_id, char* sender_id){
 
 void validate_transaction(char* in_id, char* data_id){
 	char* solved_hash = solvehashcash(diff_problem_sample, 10);
-	int did_verify = verify_id_owns_data(in_id, data_id);
+	int did_verify = verify_id_owns_data_log(in_id, data_id);
 
 	if (did_verify){
 		//Shout out to all the peeps I HAZ STR

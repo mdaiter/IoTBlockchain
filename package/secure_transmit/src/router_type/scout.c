@@ -20,7 +20,7 @@ int init_data(scout_t* scout, char* data, char data_id[]){
 
 	
 	
-	int err = merkle_tree_send(json_dumps(root, 0), scout->host_addr);
+	int err = merkle_transmit_send(json_dumps(root, 0), scout->host_addr);
 	if (err){
 		return -1;
 	}
@@ -35,14 +35,10 @@ int send_data(scout_t* scout, char data[], char data_id[], char receiver_id[]){
 
 	
 	
-	int err = merkle_tree_send(json_dumps(root, 0), scout->host_addr);
+	int err = merkle_transmit_send(json_dumps(root, 0), scout->host_addr);
 	if (err){
 		return -1;
 	}
 	return 0;
 
-}
-
-int main(){
-	
 }
