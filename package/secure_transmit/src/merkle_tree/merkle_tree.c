@@ -1,3 +1,9 @@
+/*
+ * THIS WAS NOT WRITTEN BY ME
+ * The original author was on Github.
+ * Had a much more stable release than my Rust-code Merkle tree, so decided to use his implementation for times' sake.
+ * */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
