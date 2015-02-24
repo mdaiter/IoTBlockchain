@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <jansson.h>
 #include <string.h>
-#include "../merkle-tree/md5.h"
+#include "../merkle_tree/md5.h"
 
 void blockchain_node_init(blockchain_node_t* blockchain_node, blockchain_device_t* in, blockchain_device_t* out){
 	blockchain_node = (blockchain_node_t*) malloc(sizeof(blockchain_node_t));

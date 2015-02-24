@@ -2,8 +2,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <libsocket/libinetsocket.h>
-#include "../merkle-tree/merkle_tree.h"
-#include "../merkle-tree/md5.h"
+#include "../merkle_tree/merkle_tree.h"
+#include "../merkle_tree/md5.h"
 #include <string.h>
 
 #define TREE_HEIGHT 4

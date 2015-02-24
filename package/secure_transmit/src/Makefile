@@ -5,10 +5,10 @@ OUTPUT_NAME=libsecuretransmit.so
 
 main: merkle_tree.o md5.o wink.o merkle_tree_transmit.o lead.o scout.o blockchain.o blockchain_node.o hashcash.o blockchain_device.o
 	$(CC) $(LDFLAGS) merkle_tree.o wink.o md5.o merkle_tree_transmit.o lead.o scout.o blockchain.o blockchain_node.o hashcash.o blockchain_device.o $(LIBFLAGS) -o $(OUTPUT_NAME)
-merkle_tree.o: merkle-tree/merkle_tree.c
-	$(CC) $(CFLAGS) -c merkle-tree/merkle_tree.c $(LIBFLAGS)
-md5.o: merkle-tree/md5.c merkle-tree/md5.h
-	$(CC) $(CFLAGS) -c merkle-tree/md5.c $(LIBFLAGS)
+merkle_tree.o: merkle_tree/merkle_tree.c
+	$(CC) $(CFLAGS) -c merkle_tree/merkle_tree.c $(LIBFLAGS)
+md5.o: merkle_tree/md5.c merkle_tree/md5.h
+	$(CC) $(CFLAGS) -c merkle_tree/md5.c $(LIBFLAGS)
 wink.o: wink_c_api/wink.c
 	$(CC) $(CFLAGS) -c wink_c_api/wink.c $(LIBFLAGS)
 merkle_tree_transmit.o: merkle_tree_transmit/merkle_tree_transmit.c
